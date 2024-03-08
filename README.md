@@ -1,4 +1,4 @@
-# PSX Multipurpose Classified Application
+# Adaa Multipurpose Classified Application
 
 The Adaa Multipurpose Classified Application is designed to make it easier than ever for users to buy and sell items in a safe, secure, and hassle-free manner. With our application, users can post and browse classified ads, connect with buyers and sellers, and find the perfect item for their needs.
 
