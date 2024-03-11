@@ -103,7 +103,8 @@ class _MapFilterViewState extends State<MapFilterView>
 
     final List<CircleMarker> circleMarkers = <CircleMarker>[
       CircleMarker(
-          point: latlng, //LatLng(51.5, -0.09),
+          point: latlng,
+          //LatLng(51.5, -0.09),
           color: PsColors.info500.withOpacity(0.7),
           borderColor: Utils.isLightMode(context)
               ? PsColors.primary500
@@ -129,9 +130,10 @@ class _MapFilterViewState extends State<MapFilterView>
                     padding: const EdgeInsets.all(PsDimens.space16),
                     child: FlutterMap(
                       options: MapOptions(
-                          center:
-                              latlng, //LatLng(51.5, -0.09), //LatLng(45.5231, -122.6765),
-                          zoom: zoom, //10.0,
+                          initialCenter: latlng,
+                          //LatLng(51.5, -0.09), //LatLng(45.5231, -122.6765),
+                          initialZoom: zoom,
+                          //10.0,
                           onTap: _handleTap),
                       children: <Widget>[
                         TileLayer(
@@ -144,10 +146,11 @@ class _MapFilterViewState extends State<MapFilterView>
                             width: 80.0,
                             height: 80.0,
                             point: latlng,
-                            builder: (BuildContext ctx) => Container(
+                            child: Container(
                               child: IconButton(
                                 icon: const Icon(
-                                  Icons.location_on,),
+                                  Icons.location_on,
+                                ),
                                 iconSize: 45,
                                 onPressed: () {},
                               ),

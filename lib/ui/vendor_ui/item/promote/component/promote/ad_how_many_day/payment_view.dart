@@ -3,7 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:sooq/config/ps_config.dart';
-import 'package:sooq/ui/custom_ui/item/promote/component/promote/ad_how_many_day/widgets/pay_stack_button.dart';
 
 import '../../../../../../../../core/vendor/constant/ps_dimens.dart';
 import '../../../../../../../../core/vendor/provider/app_info/app_info_provider.dart';
@@ -18,7 +17,6 @@ import '../../../../../../../config/ps_colors.dart';
 import '../../../../../../../core/vendor/utils/utils.dart';
 import '../../../../../../custom_ui/item/promote/component/promote/ad_how_many_day/widgets/offline_payment_button.dart';
 import '../../../../../../custom_ui/item/promote/component/promote/ad_how_many_day/widgets/paypal_button.dart';
-import '../../../../../../custom_ui/item/promote/component/promote/ad_how_many_day/widgets/razor_button.dart';
 import '../../../../../../custom_ui/item/promote/component/promote/ad_how_many_day/widgets/stripe_button.dart';
 import '../../../../../common/base/ps_widget_with_multi_provider.dart';
 import '../../../../../common/ps_app_bar_widget.dart';
@@ -44,6 +42,7 @@ class PaymemtView extends StatefulWidget {
   final AppInfoProvider? appInfoProvider;
   final ItemPromotionProvider itemPaidHistoryProvider;
   final UserProvider? userProvider;
+
   @override
   _ItemPromoteViewState createState() => _ItemPromoteViewState();
 }
@@ -95,7 +94,9 @@ class _ItemPromoteViewState extends State<PaymemtView>
       padding: const EdgeInsets.only(left: 10.0, right: 10, top: 4, bottom: 4),
       child: Divider(
         height: PsDimens.space1,
-        color: Utils.isLightMode(context) ? PsColors.achromatic300 : PsColors.achromatic400,
+        color: Utils.isLightMode(context)
+            ? PsColors.achromatic300
+            : PsColors.achromatic400,
       ),
     );
 
@@ -158,31 +159,6 @@ class _ItemPromoteViewState extends State<PaymemtView>
                                 appProvider: widget.appInfoProvider,
                               ),
                             if (widget.appInfoProvider!.isStripeEnabled)
-                              _dividerWidget,
-                            if (widget.appInfoProvider!.isRazorPaymentEnabled)
-                              CustomRazorButton(
-                                  amount: widget.amount,
-                                  selectedDate: widget.date,
-                                  selectedTime: widget.time,
-                                  howManyDay: widget.day,
-                                  product: widget.product,
-                                  provider: widget.itemPaidHistoryProvider,
-                                  appProvider: widget.appInfoProvider,
-                                  userProvider: widget.userProvider),
-                            if (widget.appInfoProvider!.isRazorPaymentEnabled)
-                                   _dividerWidget,
-                            if (widget.appInfoProvider!.isPayStackEnabled)
-                              CustomPayStackButton(
-                                  amount: widget.amount,
-                                  selectedDate: widget.date,
-                                  selectedTime: widget.time,
-                                  howManyDay: widget.day,
-                                  product: widget.product,
-                                  provider: widget.itemPaidHistoryProvider,
-                                  appProvider: widget.appInfoProvider,
-                                  userProvider: widget.userProvider
-                                  ),
-                            if (widget.appInfoProvider!.isPayStackEnabled)
                               _dividerWidget,
                             if (widget.appInfoProvider!.isOfflinePaymentEnabled)
                               CustomOfflinePaymentButton(
