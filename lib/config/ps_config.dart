@@ -23,8 +23,7 @@ class PsConfig {
   /// API URL
   /// Change your backend url
   ///
-  // static const String ps_core_url = 'https://sooq.adaasys.net';
-  static const String ps_core_url = 'https://www.products.panacea-soft.co/psx-mpc-demo';
+  static const String ps_core_url = 'https://sooq.adaasys.net';
 
   static const String ps_app_url = ps_core_url + '/api/v1.0/'; //index.php/';
 
