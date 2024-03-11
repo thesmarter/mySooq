@@ -56,8 +56,8 @@ Future<void> main() async {
     );
     // AppCheck
     await FirebaseAppCheck.instance.activate(
-    androidProvider: kDebugMode ? AndroidProvider.debug : AndroidProvider.playIntegrity
-  );
+        androidProvider:
+            kDebugMode ? AndroidProvider.debug : AndroidProvider.playIntegrity);
   } catch (e) {
     Utils.psPrint(e.toString());
   }
@@ -153,30 +153,35 @@ class _PSAppState extends State<PSApp> {
           ...providers,
         ],
         child: ThemeManager(
-            defaultBrightnessPreference: BrightnessPreference.light,
-            data: (Brightness brightness) {
-              if (brightness == Brightness.light) {
-                return themeData(ThemeData.light());
-              } else {
-                return themeData(ThemeData.dark());
-              }
-            },
-            themedWidgetBuilder: (BuildContext context, ThemeData theme) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'Smart-Team',
-                theme: theme,
-                initialRoute: '/',
-                onGenerateRoute:router.generateRoute,
-                localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales:
-                    context.watch<AppLocalization>().supportedLocales,
-                locale: context.watch<AppLocalization>().currentLocale,
-              );
-            }));
+          defaultBrightnessPreference: BrightnessPreference.light,
+          data: (Brightness brightness) {
+            if (brightness == Brightness.light) {
+              return themeData(ThemeData.light());
+            } else {
+              return themeData(ThemeData.dark());
+            }
+          },
+          themedBuilder: (
+            BuildContext context,
+            ThemeState state,
+          ) {
+            var theme = ThemeData();
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Smart-Team',
+              theme: theme,
+              initialRoute: '/',
+              onGenerateRoute: router.generateRoute,
+              localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales:
+                  context.watch<AppLocalization>().supportedLocales,
+              locale: context.watch<AppLocalization>().currentLocale,
+            );
+          },
+        ));
   }
 }

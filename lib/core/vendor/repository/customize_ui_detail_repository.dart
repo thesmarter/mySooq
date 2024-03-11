@@ -5,7 +5,6 @@ import 'package:sembast/sembast.dart';
 import '../api/common/ps_resource.dart';
 import '../api/common/ps_status.dart';
 import '../api/ps_api_service.dart';
-import '../constant/ps_constants.dart';
 import '../db/common/ps_data_source_manager.dart';
 import '../db/cutomize_ui_detail_dao.dart';
 import '../viewobject/common/ps_holder.dart';

@@ -43,7 +43,6 @@ import '../../core/vendor/viewobject/holder/intent_holder/user_intent_holder.dar
 import '../../core/vendor/viewobject/holder/intent_holder/verify_phone_internt_holder.dart';
 import '../../core/vendor/viewobject/holder/intent_holder/version_update_intent_holder.dart';
 import '../../core/vendor/viewobject/holder/paid_history_holder.dart';
-import '../../core/vendor/viewobject/holder/paystack_intent_holder.dart';
 import '../../core/vendor/viewobject/holder/product_parameter_holder.dart';
 import '../../core/vendor/viewobject/holder/request_path_holder.dart';
 import '../../core/vendor/viewobject/holder/sub_category_parameter_holder.dart';
@@ -84,7 +83,6 @@ import '../../ui/custom_ui/item/promote/component/promote/ad_how_many_day/paymen
 import '../../ui/custom_ui/item/promote/view/credit_card_view.dart';
 import '../../ui/custom_ui/item/promote/view/in_app_purchase_view.dart';
 import '../../ui/custom_ui/item/promote/view/item_promote_view.dart';
-import '../../ui/custom_ui/item/promote/view/pay_stack_view.dart';
 import '../../ui/custom_ui/item/promotion_transaction/view/promotion_transaction_container.dart';
 import '../../ui/custom_ui/item/related_item/view/related_product_list_view_container.dart';
 import '../../ui/custom_ui/language/view/choose_language_view.dart';
@@ -908,28 +906,28 @@ Route<dynamic> generateRoute(RouteSettings settings) {
                 itemPaidHistoryProvider:
                     paidHistoryHolder.itemPaidHistoryProvider,
               ));
-    case '${RoutePaths.payStackPayment}':
-      final Object? args = settings.arguments;
+    // case '${RoutePaths.payStackPayment}':
+    //   final Object? args = settings.arguments;
 
-      final PayStackInterntHolder payStackInterntHolder =
-          (args as PayStackInterntHolder? ?? PayStackInterntHolder)
-              as PayStackInterntHolder;
-      return PageRouteBuilder<dynamic>(
-          pageBuilder: (_, Animation<double> a1, Animation<double> a2) =>
-              CustomPayStackView(
-                product: payStackInterntHolder.product,
-                amount: payStackInterntHolder.amount,
-                howManyDay: payStackInterntHolder.howManyDay,
-                paymentMethod: payStackInterntHolder.paymentMethod,
-                stripePublishableKey:
-                    payStackInterntHolder.stripePublishableKey,
-                startDate: payStackInterntHolder.startDate,
-                startTimeStamp: payStackInterntHolder.startTimeStamp,
-                itemPaidHistoryProvider:
-                    payStackInterntHolder.itemPaidHistoryProvider,
-                userProvider: payStackInterntHolder.userProvider,
-                payStackKey: payStackInterntHolder.payStackKey,
-              ));
+      // final PayStackInterntHolder payStackInterntHolder =
+      //     (args as PayStackInterntHolder? ?? PayStackInterntHolder)
+      //         as PayStackInterntHolder;
+      // return PageRouteBuilder<dynamic>(
+      //     pageBuilder: (_, Animation<double> a1, Animation<double> a2) =>
+      //         CustomPayStackView(
+      //           product: payStackInterntHolder.product,
+      //           amount: payStackInterntHolder.amount,
+      //           howManyDay: payStackInterntHolder.howManyDay,
+      //           paymentMethod: payStackInterntHolder.paymentMethod,
+      //           stripePublishableKey:
+      //               payStackInterntHolder.stripePublishableKey,
+      //           startDate: payStackInterntHolder.startDate,
+      //           startTimeStamp: payStackInterntHolder.startTimeStamp,
+      //           itemPaidHistoryProvider:
+      //               payStackInterntHolder.itemPaidHistoryProvider,
+      //           userProvider: payStackInterntHolder.userProvider,
+      //           payStackKey: payStackInterntHolder.payStackKey,
+      //         ));
     case '${RoutePaths.offlinePayment}':
       final Object? args = settings.arguments;
 

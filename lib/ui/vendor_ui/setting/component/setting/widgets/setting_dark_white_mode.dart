@@ -54,7 +54,7 @@ class __SettingDarkAndWhiteModeWidgetState
                         value: !Utils.isLightMode(context),
                         onChanged: (bool value) {
                           // PsColors.loadColor2(value);
-                          changeBrightness(context);
+                          // changeBrightness(context);
                         },
                         activeColor: Theme.of(context).primaryColor,
                       ),
@@ -73,9 +73,9 @@ class __SettingDarkAndWhiteModeWidgetState
     );
   }
 
-  void changeBrightness(BuildContext context) {
-    ThemeManager.of(context).setBrightnessPreference(Utils.isLightMode(context)
-        ? BrightnessPreference.dark
-        : BrightnessPreference.light);
-  }
+  // void changeBrightness(BuildContext context) {
+  //   ThemeManager.of(context).setBrightnessPreference(Utils.isLightMode(context)
+  //       ? BrightnessPreference.dark
+  //       : BrightnessPreference.light);
+  // }
 }

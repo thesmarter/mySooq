@@ -39,14 +39,14 @@ class _PsCreditCardFormState extends State<PsCreditCardFormForPayStack> {
   late void Function(CreditCardModel?) onCreditCardModelChange;
   CreditCardModel? creditCardModel;
 
-  final MaskedTextController _cardNumberController = MaskedTextController(
-      mask: '0000 0000 0000 0000 0000 0000 0000 0000 0000 0000');
-  final TextEditingController _expiryDateController =
-      MaskedTextController(mask: '00/00');
-  final TextEditingController _cardHolderNameController =
-      TextEditingController();
-  final TextEditingController _cvvCodeController =
-      MaskedTextController(mask: '000');
+  // final MaskedTextController _cardNumberController = MaskedTextController(
+  //     mask: '0000 0000 0000 0000 0000 0000 0000 0000 0000 0000');
+  // final TextEditingController _expiryDateController =
+  //     MaskedTextController(mask: '00/00');
+  // final TextEditingController _cardHolderNameController =
+  //     TextEditingController();
+  // final TextEditingController _cvvCodeController =
+  //     MaskedTextController(mask: '000');
 
   FocusNode cvvFocusNode = FocusNode();
 
@@ -75,37 +75,37 @@ class _PsCreditCardFormState extends State<PsCreditCardFormForPayStack> {
 
     cvvFocusNode.addListener(textFieldFocusDidChange);
 
-    _cardNumberController.addListener(() {
-      setState(() {
-        cardNumber = _cardNumberController.text;
-        creditCardModel!.cardNumber = cardNumber!;
-        onCreditCardModelChange(creditCardModel);
-      });
-    });
+    // _cardNumberController.addListener(() {
+    //   setState(() {
+    //     cardNumber = _cardNumberController.text;
+    //     creditCardModel!.cardNumber = cardNumber!;
+    //     onCreditCardModelChange(creditCardModel);
+    //   });
+    // });
 
-    _expiryDateController.addListener(() {
-      setState(() {
-        expiryDate = _expiryDateController.text;
-        creditCardModel!.expiryDate = expiryDate!;
-        onCreditCardModelChange(creditCardModel);
-      });
-    });
-
-    _cardHolderNameController.addListener(() {
-      setState(() {
-        cardHolderName = _cardHolderNameController.text;
-        creditCardModel!.cardHolderName = cardHolderName!;
-        onCreditCardModelChange(creditCardModel);
-      });
-    });
-
-    _cvvCodeController.addListener(() {
-      setState(() {
-        cvvCode = _cvvCodeController.text;
-        creditCardModel!.cvvCode = cvvCode!;
-        onCreditCardModelChange(creditCardModel);
-      });
-    });
+    // _expiryDateController.addListener(() {
+    //   setState(() {
+    //     expiryDate = _expiryDateController.text;
+    //     creditCardModel!.expiryDate = expiryDate!;
+    //     onCreditCardModelChange(creditCardModel);
+    //   });
+    // });
+    //
+    // _cardHolderNameController.addListener(() {
+    //   setState(() {
+    //     cardHolderName = _cardHolderNameController.text;
+    //     creditCardModel!.cardHolderName = cardHolderName!;
+    //     onCreditCardModelChange(creditCardModel);
+    //   });
+    // });
+    //
+    // _cvvCodeController.addListener(() {
+    //   setState(() {
+    //     cvvCode = _cvvCodeController.text;
+    //     creditCardModel!.cvvCode = cvvCode!;
+    //     onCreditCardModelChange(creditCardModel);
+    //   });
+    // });
   }
 
   @override
@@ -122,29 +122,36 @@ class _PsCreditCardFormState extends State<PsCreditCardFormForPayStack> {
             textDirection: Directionality.of(context) == TextDirection.ltr
                 ? TextDirection.ltr
                 : TextDirection.rtl,
-            child: PsTextFieldWidget(
+            child: const PsTextFieldWidget(
                 titleText: 'Card Number',
                 textAboutMe: false,
                 keyboardType: TextInputType.number,
-                textEditingController: _cardNumberController)),
-        PsTextFieldWidget(
+                // textEditingController: _cardNumberController
+            )
+
+        ),
+        const PsTextFieldWidget(
             titleText: 'Expired Date',
             textAboutMe: false,
             hintText: 'MM/YY',
             keyboardType: TextInputType.number,
-            textEditingController: _expiryDateController),
-        PsTextFieldWidget(
+            // textEditingController: _expiryDateController
+        ),
+        const PsTextFieldWidget(
             titleText: 'CVV',
             textAboutMe: false,
             hintText: 'XXX',
             keyboardType: TextInputType.number,
-            textEditingController: _cvvCodeController),
-        PsTextFieldWidget(
+            // textEditingController: _cvvCodeController
+        ),
+        const PsTextFieldWidget(
             titleText: 'Card Holder Name',
             textAboutMe: false,
             hintText: 'Card Holder Name',
             keyboardType: TextInputType.text,
-            textEditingController: _cardHolderNameController),
+            // textEditingController: _cardHolderNameController
+        ),
+
       ],
     );
   }
